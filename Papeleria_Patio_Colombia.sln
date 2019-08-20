@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29209.62
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Papeleria_Patio_Colombia", "Papeleria_Patio_Colombia.csproj", "{8D589A5F-55F0-4E17-9528-84E2C9125FFF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8D589A5F-55F0-4E17-9528-84E2C9125FFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D589A5F-55F0-4E17-9528-84E2C9125FFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D589A5F-55F0-4E17-9528-84E2C9125FFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D589A5F-55F0-4E17-9528-84E2C9125FFF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E5DC5581-9B95-4AC3-AB78-F3E8BBEE9916}
+	EndGlobalSection
+EndGlobal

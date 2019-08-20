@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Papeleria_Patio_ColombiaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Ordenes">
+          <Key>
+            <PropertyRef Name="id_Ordenes" />
+          </Key>
+          <Property Name="id_Ordenes" Type="int" Nullable="false" />
+          <Property Name="Id_Servicios" Type="int" Nullable="false" />
+          <Property Name="Empleado" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Receptor">
+          <Key>
+            <PropertyRef Name="Id_Receptor" />
+          </Key>
+          <Property Name="Id_Receptor" Type="int" Nullable="false" />
+          <Property Name="Id_Ordenes" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Servicios">
+          <Key>
+            <PropertyRef Name="Id_Servicios" />
+          </Key>
+          <Property Name="Id_Servicios" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Codigo" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Ordenes_Receptor">
+          <End Role="Receptor" Type="Self.Receptor" Multiplicity="1" />
+          <End Role="Ordenes" Type="Self.Ordenes" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Receptor">
+              <PropertyRef Name="Id_Receptor" />
+            </Principal>
+            <Dependent Role="Ordenes">
+              <PropertyRef Name="id_Ordenes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Servicios_Ordenes">
+          <End Role="Ordenes" Type="Self.Ordenes" Multiplicity="1" />
+          <End Role="Servicios" Type="Self.Servicios" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Ordenes">
+              <PropertyRef Name="id_Ordenes" />
+            </Principal>
+            <Dependent Role="Servicios">
+              <PropertyRef Name="Id_Servicios" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Papeleria_Patio_ColombiaModelStoreContainer">
+          <EntitySet Name="Ordenes" EntityType="Self.Ordenes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Receptor" EntityType="Self.Receptor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Servicios" EntityType="Self.Servicios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Ordenes_Receptor" Association="Self.FK_Ordenes_Receptor">
+            <End Role="Receptor" EntitySet="Receptor" />
+            <End Role="Ordenes" EntitySet="Ordenes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Servicios_Ordenes" Association="Self.FK_Servicios_Ordenes">
+            <End Role="Ordenes" EntitySet="Ordenes" />
+            <End Role="Servicios" EntitySet="Servicios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Papeleria_Patio_ColombiaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Ordenes">
+          <Key>
+            <PropertyRef Name="id_Ordenes" />
+          </Key>
+          <Property Name="id_Ordenes" Type="Int32" Nullable="false" />
+          <Property Name="Id_Servicios" Type="Int32" Nullable="false" />
+          <Property Name="Empleado" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Receptor" Relationship="Self.FK_Ordenes_Receptor" FromRole="Ordenes" ToRole="Receptor" />
+          <NavigationProperty Name="Servicios" Relationship="Self.FK_Servicios_Ordenes" FromRole="Ordenes" ToRole="Servicios" />
+        </EntityType>
+        <EntityType Name="Receptor">
+          <Key>
+            <PropertyRef Name="Id_Receptor" />
+          </Key>
+          <Property Name="Id_Receptor" Type="Int32" Nullable="false" />
+          <Property Name="Id_Ordenes" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Ordenes" Relationship="Self.FK_Ordenes_Receptor" FromRole="Receptor" ToRole="Ordenes" />
+        </EntityType>
+        <EntityType Name="Servicios">
+          <Key>
+            <PropertyRef Name="Id_Servicios" />
+          </Key>
+          <Property Name="Id_Servicios" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Codigo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Ordenes" Relationship="Self.FK_Servicios_Ordenes" FromRole="Servicios" ToRole="Ordenes" />
+        </EntityType>
+        <Association Name="FK_Ordenes_Receptor">
+          <End Role="Receptor" Type="Self.Receptor" Multiplicity="1" />
+          <End Role="Ordenes" Type="Self.Ordenes" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Receptor">
+              <PropertyRef Name="Id_Receptor" />
+            </Principal>
+            <Dependent Role="Ordenes">
+              <PropertyRef Name="id_Ordenes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Servicios_Ordenes">
+          <End Role="Ordenes" Type="Self.Ordenes" Multiplicity="1" />
+          <End Role="Servicios" Type="Self.Servicios" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Ordenes">
+              <PropertyRef Name="id_Ordenes" />
+            </Principal>
+            <Dependent Role="Servicios">
+              <PropertyRef Name="Id_Servicios" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Papeleria_Patio_ColombiaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Ordenes" EntityType="Self.Ordenes" />
+          <EntitySet Name="Receptor" EntityType="Self.Receptor" />
+          <EntitySet Name="Servicios" EntityType="Self.Servicios" />
+          <AssociationSet Name="FK_Ordenes_Receptor" Association="Self.FK_Ordenes_Receptor">
+            <End Role="Receptor" EntitySet="Receptor" />
+            <End Role="Ordenes" EntitySet="Ordenes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Servicios_Ordenes" Association="Self.FK_Servicios_Ordenes">
+            <End Role="Ordenes" EntitySet="Ordenes" />
+            <End Role="Servicios" EntitySet="Servicios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Papeleria_Patio_ColombiaModelStoreContainer" CdmEntityContainer="Papeleria_Patio_ColombiaEntities">
+          <EntitySetMapping Name="Ordenes">
+            <EntityTypeMapping TypeName="Papeleria_Patio_ColombiaModel.Ordenes">
+              <MappingFragment StoreEntitySet="Ordenes">
+                <ScalarProperty Name="id_Ordenes" ColumnName="id_Ordenes" />
+                <ScalarProperty Name="Id_Servicios" ColumnName="Id_Servicios" />
+                <ScalarProperty Name="Empleado" ColumnName="Empleado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Receptor">
+            <EntityTypeMapping TypeName="Papeleria_Patio_ColombiaModel.Receptor">
+              <MappingFragment StoreEntitySet="Receptor">
+                <ScalarProperty Name="Id_Receptor" ColumnName="Id_Receptor" />
+                <ScalarProperty Name="Id_Ordenes" ColumnName="Id_Ordenes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Servicios">
+            <EntityTypeMapping TypeName="Papeleria_Patio_ColombiaModel.Servicios">
+              <MappingFragment StoreEntitySet="Servicios">
+                <ScalarProperty Name="Id_Servicios" ColumnName="Id_Servicios" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
