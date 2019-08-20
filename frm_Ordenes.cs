@@ -16,5 +16,39 @@ namespace Papeleria_Patio_Colombia
         {
             InitializeComponent();
         }
+
+        private void Frm_Ordenes_Load(object sender, EventArgs e)
+        {
+
+            //using (Capa_Datos.Papeleria_Patio_ColombiaEntities2 db = new Capa_Datos.Papeleria_Patio_ColombiaEntities2() ) 
+            //{
+
+            //    var lst = db.Servicios;
+
+            //    foreach (var OServicios in lst)
+            //    {
+
+            //         cb_Servicios.Items.Add(OServicios.Descripcion);
+            //    }
+
+            //}
+
+        }
+         //Agregar producto de combo box a list box y luego se limpia el combo box
+        private void Btn_AgregarServicio_Click(object sender, EventArgs e)
+        {
+            //if (cb_Servicios.SelectedIndex != 0)
+            //{
+            //}
+                lb_Servicios.Items.Add(cb_Servicios.SelectedItem);
+        }
+
+        private void Btn_RegistrarServicio_Click(object sender, EventArgs e)
+        {
+            Form frm_Servicios = new frm_Servicios();
+
+            frm_Servicios.ShowDialog();
+            
+        }
     }
 }

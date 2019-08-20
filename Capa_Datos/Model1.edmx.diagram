@@ -4,10 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7a355460921046ec8dfc3c60c7cc4eda" Name="Diagram1">
+      <Diagram DiagramId="1886f2fb73f84033aee176e3742630c0" Name="Diagram1">
         <EntityTypeShape EntityType="Papeleria_Patio_ColombiaModel.Ordenes" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Papeleria_Patio_ColombiaModel.Receptor" Width="1.5" PointX="0.5" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Papeleria_Patio_ColombiaModel.Servicios" Width="1.5" PointX="6.875" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Papeleria_Patio_ColombiaModel.Receptor" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Papeleria_Patio_ColombiaModel.Servicios" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="Papeleria_Patio_ColombiaModel.FK_Ordenes_Receptor" ManuallyRouted="false" />
         <AssociationConnector Association="Papeleria_Patio_ColombiaModel.FK_Servicios_Ordenes" ManuallyRouted="false" />
       </Diagram>

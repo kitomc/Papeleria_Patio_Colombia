@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="id_Ordenes" />
           </Key>
-          <Property Name="id_Ordenes" Type="int" Nullable="false" />
+          <Property Name="id_Ordenes" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Id_Servicios" Type="int" Nullable="false" />
           <Property Name="Empleado" Type="varchar" MaxLength="150" Nullable="false" />
         </EntityType>
@@ -17,14 +17,14 @@
           <Key>
             <PropertyRef Name="Id_Receptor" />
           </Key>
-          <Property Name="Id_Receptor" Type="int" Nullable="false" />
+          <Property Name="Id_Receptor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Id_Ordenes" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Servicios">
           <Key>
             <PropertyRef Name="Id_Servicios" />
           </Key>
-          <Property Name="Id_Servicios" Type="int" Nullable="false" />
+          <Property Name="Id_Servicios" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Descripcion" Type="varchar" MaxLength="250" Nullable="false" />
           <Property Name="Codigo" Type="int" Nullable="false" />
         </EntityType>
@@ -74,7 +74,7 @@
           <Key>
             <PropertyRef Name="id_Ordenes" />
           </Key>
-          <Property Name="id_Ordenes" Type="Int32" Nullable="false" />
+          <Property Name="id_Ordenes" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Id_Servicios" Type="Int32" Nullable="false" />
           <Property Name="Empleado" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Receptor" Relationship="Self.FK_Ordenes_Receptor" FromRole="Ordenes" ToRole="Receptor" />
@@ -84,7 +84,7 @@
           <Key>
             <PropertyRef Name="Id_Receptor" />
           </Key>
-          <Property Name="Id_Receptor" Type="Int32" Nullable="false" />
+          <Property Name="Id_Receptor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Id_Ordenes" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Ordenes" Relationship="Self.FK_Ordenes_Receptor" FromRole="Receptor" ToRole="Ordenes" />
         </EntityType>
@@ -92,7 +92,7 @@
           <Key>
             <PropertyRef Name="Id_Servicios" />
           </Key>
-          <Property Name="Id_Servicios" Type="Int32" Nullable="false" />
+          <Property Name="Id_Servicios" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Codigo" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Ordenes" Relationship="Self.FK_Servicios_Ordenes" FromRole="Servicios" ToRole="Ordenes" />
@@ -121,7 +121,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Papeleria_Patio_ColombiaEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Papeleria_Patio_ColombiaEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Ordenes" EntityType="Self.Ordenes" />
           <EntitySet Name="Receptor" EntityType="Self.Receptor" />
           <EntitySet Name="Servicios" EntityType="Self.Servicios" />
@@ -139,7 +139,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Papeleria_Patio_ColombiaModelStoreContainer" CdmEntityContainer="Papeleria_Patio_ColombiaEntities">
+        <EntityContainerMapping StorageEntityContainer="Papeleria_Patio_ColombiaModelStoreContainer" CdmEntityContainer="Papeleria_Patio_ColombiaEntities2">
           <EntitySetMapping Name="Ordenes">
             <EntityTypeMapping TypeName="Papeleria_Patio_ColombiaModel.Ordenes">
               <MappingFragment StoreEntitySet="Ordenes">

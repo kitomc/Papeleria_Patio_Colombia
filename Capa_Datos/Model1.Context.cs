@@ -13,10 +13,10 @@ namespace Papeleria_Patio_Colombia.Capa_Datos
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Papeleria_Patio_ColombiaEntities : DbContext
+    public partial class Papeleria_Patio_ColombiaEntities2 : DbContext
     {
-        public Papeleria_Patio_ColombiaEntities()
-            : base("name=Papeleria_Patio_ColombiaEntities")
+        public Papeleria_Patio_ColombiaEntities2()
+            : base("name=Papeleria_Patio_ColombiaEntities2")
         {
         }
     
